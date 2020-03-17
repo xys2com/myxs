@@ -38,7 +38,7 @@
 <script lang="ts">
 import { Vue, Component, Watch, Prop } from 'vue-property-decorator'
 @Component
-export default class Login extends Vue {
+export default class Register extends Vue {
   @Prop({ default: () => {}, type: Function }) cgPage!: any
   username: string = ''
   password: string = ''

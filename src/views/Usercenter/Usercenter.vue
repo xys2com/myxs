@@ -104,19 +104,19 @@
     float:right;
   }
   .el-button{
+    display: block;
     width: 9.2rem;
     margin: .8rem auto;
   }
 </style>
 <template>
   <div class="usercenter" @scroll="scl()" ref="main">
-    <Header/>
-    <child :border="border" :color="color">
+    <Header :border="border" :color="color">
       <div class="link-left" slot="left-icon" @click="back()">
         <i class="iconfont" :style="{color:color}">&#xe605;</i>
       </div>
       <span slot="center-tit">个人中心</span>
-    </child>
+    </Header>
     <div class="center-content">
       <div class="userinfos">
         <div class="infos">
@@ -171,40 +171,36 @@
       </div>
       <el-button @click="logout()">退出登录</el-button>
     </div>
-    <Footer/>
   </div>
 </template>
-<script>
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-export default {
-  data () {
-    return {
-      opacity: 0,
-      border: 'unset',
-      color: 'rgba(255,255,255,1)'
-    };
-  },
-  mounted () {
-    this.act = parseInt(this.$route.params.act);
-  },
+<script lang="ts">
+import { Vue, Component, Watch } from 'vue-property-decorator'
+import Header from '@/components/Header.vue'
+@Component({
   components: {
-    'child': Header,
-    Footer
-  },
-  methods: {
-    scl () {
-      let scrollval = this.$refs.main.scrollTop;
-      this.opacity = (scrollval > 100 ? 100 : scrollval) / 100;
-      scrollval > 100 ? this.border = '1px solid #f6f6f6' : this.border = 'unset';
-      this.color = 'rgba(255,255,255,' + (1 - (scrollval > 100 ? 100 : scrollval)) + ')';
-    },
-    back () {
-      this.$router.go(-1);
-    },
-    logout () {
-      this.$router.push('/customer');
-    }
+    Header
   }
-};
+})
+export default class Usercenter extends Vue {
+  opacity: number = 0
+  border: string = 'unset'
+  color: string = 'rgba(255,255,255,1)'
+  act: any = null
+  mounted () {
+    this.act = parseInt(this.$route.params.act)
+  }
+  scl () {
+    // @ts-ignore
+    let scrollval = this.$refs.main.scrollTop
+    this.opacity = (scrollval > 100 ? 100 : scrollval) / 100
+    scrollval > 100 ? this.border = '1px solid #f6f6f6' : this.border = 'unset'
+    this.color = 'rgba(255,255,255,' + (1 - (scrollval > 100 ? 100 : scrollval)) + ')'
+  }
+  back () {
+    this.$router.go(-1)
+  }
+  logout () {
+    this.$router.push('/customer')
+  }
+}
 </script>

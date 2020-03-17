@@ -27,6 +27,26 @@ export default new Router({
       component: () => import('../views/application.vue')
     },
     {
+      path: '/addcenter',
+      name: 'Addcenter',
+      component: () => import('../views/Addcenter/addcenter.vue')
+    },
+    {
+      path: '/setting',
+      name: 'Setting',
+      component: () => import('../views/Addcenter/setting.vue')
+    },
+    {
+      path: '/management',
+      name: 'Management',
+      component: () => import('../views/Management/management.vue')
+    },
+    {
+      path: '/usercenter',
+      name: 'Usercenter',
+      component: () => import('../views/Usercenter/usercenter.vue')
+    },
+    {
       redirect: '/customer',
       path: '/'
     }

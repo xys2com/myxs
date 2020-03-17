@@ -18,7 +18,7 @@
     "co-series": "^3.0.2",
     "core-js": "^2.6.5",
     "element-theme": "^2.0.1",
-    "element-ui": "^2.11.1",
+    "element-ui": "^2.13.0",
     "global": "^4.4.0",
     "ipfs-http-client": "^33.1.1",
     "ipfs-unixfs": "^0.1.16",

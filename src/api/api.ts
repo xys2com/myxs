@@ -6,3 +6,6 @@ export function getBooklist () {
 export function addBook (p: any) {
   return Post('/addbook', p)
 }
+export function addSetting (p: any) {
+  return Post('/addsetting', p)
+}

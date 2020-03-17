@@ -1,12 +1,17 @@
 <template>
-  <transition name="el-fade-in"
-              mode="out-in">
-    <router-view />
-  </transition>
+<div class="myapp">
+  <router-view />
+  <Footer />
+</div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-@Component
+import Footer from '@/components/Footer.vue'
+@Component({
+  components: {
+    Footer
+  }
+})
 export default class App extends Vue {
   created () {
     // 解决url访问白屏问题
@@ -17,3 +22,9 @@ export default class App extends Vue {
   }
 }
 </script>
+<style lang="scss" scope>
+.myapp{
+  height: 100vh;
+  background: #fff;
+}
+</style>

@@ -41,7 +41,7 @@
         <p class="item-name">主页</p>
       </div>
     </router-link>
-    <router-link to="/Menu">
+    <router-link to="/Addcenter">
       <div class="item" :style="{color:footer[1].color}">
         <div class="icon">
           <i class="iconfont">&#xe600;</i>
@@ -87,14 +87,14 @@ export default class Footer extends Vue {
     }
   }
   highlight () {
-    let routeStr = this.$route.path
-    if (routeStr.indexOf('Application') >= 0) {
+    let routeName = this.$route.name
+    if (routeName === 'Application') {
       this.act = 0
-    } else if (routeStr.indexOf('Menu') >= 0) {
+    } else if (routeName === 'Addcenter') {
       this.act = 1
-    } else if (routeStr.indexOf('Management') >= 0) {
+    } else if (routeName === 'Management') {
       this.act = 2
-    } else if (routeStr.indexOf('Usercenter') >= 0) {
+    } else if (routeName === 'Usercenter') {
       this.act = 3
     }
     for (let i = 0; i < this.footer.length; i++) {

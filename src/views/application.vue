@@ -84,14 +84,14 @@
 </style>
 <template>
   <div class="lication-main" @scroll="scl()" ref="main">
-    <child :rgba="rgba">
+    <Header :rgba="rgba">
       <span slot="center-tit">主页</span>
       <div class="link-right" slot="right-icon">
         <router-link to="/Usercenter">
           <i class="iconfont" style="color:#fff">&#xe603;</i>
         </router-link>
       </div>
-    </child>
+    </Header>
     <div class="banner">
       <img src="@/assets/images/banner.png" alt="">
     </div>
@@ -110,19 +110,15 @@
         </li>
       </ul>
     </div>
-    <Footer />
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Watch } from 'vue-property-decorator'
 import { getBooklist, addBook } from '@/api/api'
-import axios from 'axios'
 import Header from '@/components/Header.vue'
-import Footer from '@/components/Footer.vue'
 @Component({
   components: {
-    Footer,
-    'child': Header
+    Header
   }
 })
 export default class Application extends Vue {
@@ -151,9 +147,7 @@ export default class Application extends Vue {
   }
   async add () {
     let { status, data, statusText } = (await addBook({ id: '1', name: 'book' })) as any
-    if (status === 200) {
-      console.log(statusText)
-    } else {
+    if (status === 200) {} else {
       this.$message.error(statusText)
     }
   }

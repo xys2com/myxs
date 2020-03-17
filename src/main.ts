@@ -9,6 +9,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from '@/routers/router'
 import store from '@/store/store'
+// @ts-ignore
 import ElementUi from 'element-ui'
 import mixin from './mixin'
 import '../theme/index.css'

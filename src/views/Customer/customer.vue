@@ -18,6 +18,7 @@
   z-index: -1;
   img{
     position: absolute;
+    top: 0;
     left: 0;
     width: 400%;
     height: 100%;
@@ -84,7 +85,7 @@ import { Vue, Component, Watch } from 'vue-property-decorator'
     register
   }
 })
-export default class Login extends Vue {
+export default class Customer extends Vue {
   backimg: number = 0
   mode: string = 'login'
   created () {
